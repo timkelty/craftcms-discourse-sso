@@ -1,22 +1,56 @@
 {% import "_includes/forms" as forms %}
 
-{{ loginUrl }}
-{{ logoutUrl }}
+<h2>Discourse Settings</h2>
+<p>Enter the following values in settings of your Discourse instance. For more information, see the <a href="https://meta.discourse.org/t/official-single-sign-on-for-discourse-sso/13045">official guide</a>.</p>
 
-{{ forms.textField({
-    label: 'Discourse SSO endpoint',
-    placeholder: 'https://your.discourse.domain/session/sso_login',
-    id: 'ssoEndpoint',
-    name: 'ssoEndpoint',
-    required: true,
-    value: settings.ssoEndpoint
-}}
+<table class="data fullwidth collapsible">
+    <tbody>
+        <tr>
+            <th class="light">
+                Craft SSO URL
+                <span class="info">Paste this value in the <strong>sso url</strong> setting of Discourse.</span>
+            </th>
+            <td>
+                <code>{{ ssoUrl }}</code>
+            </td>
+        </tr>
+        <tr>
+            <th class="light">
+                Craft Logout URL
+                <span class="info">Paste this value in the <strong>logout redirect</strong> setting of Discourse.</span>
+            </th>
+            <td>
+                <code>{{ logoutUrl }}</code>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-{{ forms.textField({
-    label: 'Discourse SSO secret',
-    instructions: 'Get this from Admin -> Settings -> Login -> sso secret.',
-    id: 'ssoSecret',
-    name: 'ssoSecret',
-    required: true,
-    value: settings.ssoSecret
-}}
+<h2>Craft Settings</h2>
+
+<p>Configure here, or with a <code>config/discourse-sso.php</code> config file.</p>
+
+{% with { fieldName: 'ssoEndpoint', url: 'https://your.discourse.domain/session/sso_login' } %}
+    {{ forms.textField({
+        label: 'Discourse SSO Endpoint',
+        instructions: 'The full URL to the SSO endpoint of your Discourse instance, for example: `' ~ url ~ '`',
+        placeholder: url,
+        id: fieldName,
+        name: fieldName,
+        required: true,
+        value: settings[fieldName],
+      })
+    }}
+{% endwith %}
+
+{% with { fieldName: 'ssoSecret' } %}
+    {{ forms.textField({
+        label: 'Discourse SSO secret',
+        instructions: 'Find this value in the settings of your Discourse instance: **Admin → Settings → Login → sso secret**',
+        id: fieldName,
+        name: fieldName,
+        required: true,
+        value: settings.ssoSecret,
+      })
+    }}
+{% endwith %}
