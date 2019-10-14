@@ -1,0 +1,49 @@
+{
+  "name": "timkelty/craftcms-discourse-sso",
+  "description": "Single Sign-On for Discourse",
+  "type": "craft-plugin",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "discourse",
+    "sso"
+  ],
+  "support": {
+    "docs": "https://github.com/timkelty/craftcms-discourse-sso/blob/master/README.md",
+    "issues": "https://github.com/timkelty/craftcms-discourse-sso/issues"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tim Kelty",
+      "homepage": "https://github.com/timkelty"
+    },
+    {
+      "name": "Fusionary",
+      "homepage": "https://fusionary.com"
+    },
+    {
+      "name": "Superbig",
+      "homepage": "https://superbig.co"
+    }
+  ],
+  "require": {
+    "craftcms/cms": "^3.0.0-RC1",
+    "cviebrock/discourse-php": "^0.9.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "timkelty\\craftcms\\discoursesso\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "Discourse SSO",
+    "handle": "discourse-sso",
+    "hasCpSettings": true,
+    "hasCpSection": false,
+    "changelogUrl": "https://raw.githubusercontent.com/timkelty/craftcms-discourse-sso/master/CHANGELOG.md",
+    "class": "timkelty\\craftcms\\discoursesso\\Plugin"
+  }
+}

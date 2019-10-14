@@ -1,0 +1,22 @@
+{% import "_includes/forms" as forms %}
+
+{{ loginUrl }}
+{{ logoutUrl }}
+
+{{ forms.textField({
+    label: 'Discourse SSO endpoint',
+    placeholder: 'https://your.discourse.domain/session/sso_login',
+    id: 'ssoEndpoint',
+    name: 'ssoEndpoint',
+    required: true,
+    value: settings.ssoEndpoint
+}}
+
+{{ forms.textField({
+    label: 'Discourse SSO secret',
+    instructions: 'Get this from Admin -> Settings -> Login -> sso secret.',
+    id: 'ssoSecret',
+    name: 'ssoSecret',
+    required: true,
+    value: settings.ssoSecret
+}}
