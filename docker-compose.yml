@@ -1,0 +1,20 @@
+version: '3'
+services:
+  codecept:
+    image: codeception/codeception
+    env_file: ./tests/.env
+    depends_on:
+      - db
+    volumes:
+      - .:/project
+  # web:
+  #   image: php:7-apache
+  #   depends_on:
+  #     - db
+  #   volumes:
+  #     - .:/var/www/html
+  db:
+    image: mysql:5.7
+    env_file: ./tests/.env
+    ports:
+      - '3306:3306'

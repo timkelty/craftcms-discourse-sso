@@ -45,5 +45,16 @@
     "hasCpSection": false,
     "changelogUrl": "https://raw.githubusercontent.com/timkelty/craftcms-discourse-sso/master/CHANGELOG.md",
     "class": "timkelty\\craftcms\\discoursesso\\Plugin"
+  },
+  "require-dev": {
+    "codeception/codeception": "^3.1",
+    "vlucas/phpdotenv": "^3.0"
+  },
+  "scripts": {
+    "test": [
+      "Composer\\Config::disableProcessTimeout",
+      "docker-compose -f tests/docker-compose.yml up -d",
+      "codecept run unit"
+    ]
   }
 }
