@@ -6,8 +6,9 @@ use craft\helpers\UrlHelper;
 use Cviebrock\DiscoursePHP\SSOHelper;
 use timkelty\craftcms\discoursesso\Plugin;
 use yii\web\BadRequestHttpException;
+use yii\web\Controller;
 
-class LoginController extends \craft\web\Controller
+class LoginController extends Controller
 {
     public function actionIndex()
     {
@@ -19,7 +20,7 @@ class LoginController extends \craft\web\Controller
         $signature = Craft::$app->getRequest()->getRequiredParam('sig');
         $sso = (new SSOHelper())->setSecret($settings->ssoSecret);
 
-        if ( !($sso->validatePayload($payload, $signature)) ) {
+        if (!($sso->validatePayload($payload, $signature))) {
             throw new BadRequestHttpException('Invalid SSO Payload.');
         }
 
@@ -29,7 +30,7 @@ class LoginController extends \craft\web\Controller
             $user->email,
             [
                 'username' => $user->username,
-                'name'     => $user->getName(),
+                'name' => $user->getName(),
             ]
         );
 

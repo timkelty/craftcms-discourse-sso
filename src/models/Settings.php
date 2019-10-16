@@ -1,7 +1,6 @@
 <?php
-namespace timkelty\craftcms\discoursesso\models;
 
-use Craft;
+namespace timkelty\craftcms\discoursesso\models;
 
 class Settings extends \craft\base\Model
 {
