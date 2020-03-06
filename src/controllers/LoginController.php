@@ -3,10 +3,10 @@ namespace timkelty\craftcms\discoursesso\controllers;
 
 use Craft;
 use craft\helpers\UrlHelper;
+use craft\web\Controller;
 use Cviebrock\DiscoursePHP\SSOHelper;
 use timkelty\craftcms\discoursesso\Plugin;
 use yii\web\BadRequestHttpException;
-use yii\web\Controller;
 
 class LoginController extends Controller
 {
