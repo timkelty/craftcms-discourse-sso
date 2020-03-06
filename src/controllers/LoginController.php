@@ -34,6 +34,7 @@ class LoginController extends Controller
             ]
         );
 
+        Craft::warning('discourseurl: ' .UrlHelper::urlWithParams($settings->ssoEndpoint, $query));
         $this->redirect(UrlHelper::urlWithParams($settings->ssoEndpoint, $query));
     }
 }
