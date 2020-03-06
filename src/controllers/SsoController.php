@@ -34,6 +34,6 @@ class SsoController extends Controller
             ]
         );
 
-        $this->redirect(UrlHelper::urlWithParams($settings->ssoEndpoint, $query));
+        return $this->redirect(UrlHelper::urlWithParams($settings->ssoEndpoint, $query));
     }
 }
