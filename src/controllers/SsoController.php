@@ -10,6 +10,8 @@ use yii\web\BadRequestHttpException;
 
 class SsoController extends Controller
 {
+    public $allowAnonymous = true;
+
     public function actionLogin()
     {
         $this->requireLogin();
