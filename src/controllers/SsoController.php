@@ -8,9 +8,9 @@ use Cviebrock\DiscoursePHP\SSOHelper;
 use timkelty\craftcms\discoursesso\Plugin;
 use yii\web\BadRequestHttpException;
 
-class LoginController extends Controller
+class SsoController extends Controller
 {
-    public function actionIndex()
+    public function actionLogin()
     {
         $this->requireLogin();
 
